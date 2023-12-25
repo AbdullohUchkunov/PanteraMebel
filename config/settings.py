@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'djoser',
 
     'product',
+    'custom_auth',
 ]
 
 MIDDLEWARE = [
