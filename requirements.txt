@@ -28,6 +28,7 @@ inflection==0.5.1
 kombu==5.3.1
 oauthlib==3.2.2
 packaging==23.1
+pillow==10.2.0
 prompt-toolkit==3.0.39
 pycparser==2.21
 PyJWT==2.8.0

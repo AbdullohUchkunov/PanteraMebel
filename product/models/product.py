@@ -25,7 +25,21 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
 
+class ProductPhotoColor(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    color = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='imagesColor', null=True)
 
+    def __str__(self):
+        return f"{self.product} - {self.color}"
+
+
+class ProductPhotoView(models.Model):
+    photo = models.ForeignKey(ProductPhotoColor, on_delete=models.CASCADE)
+    photoBack = models.ImageField(upload_to='imageView')
+    photoFront = models.ImageField(upload_to='imageView')
+    photoRight = models.ImageField(upload_to='imageView')
+    photoLeft = models.ImageField(upload_to='imageView')
 
 
 

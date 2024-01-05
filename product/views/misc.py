@@ -20,7 +20,7 @@ class ReviewUserListCreateView(generics.ListCreateAPIView):
 
 
 class FlashSaleListCreateView(generics.ListCreateAPIView):
-    queryset = FlashSale
+    queryset = FlashSale.objects.all()
 
     class FlashSaleSerializer(serializers.ModelSerializer):
         class Meta:

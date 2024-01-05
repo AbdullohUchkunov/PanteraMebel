@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -125,13 +126,20 @@ USE_I18N = True
 USE_TZ = True
 
 
+MEDIA_ROOT = BASE_DIR.joinpath("media")
+MEDIA_URL = '/media/'
+
 LANGUAGES = [
-    ('en', _('English')),
     ('ru', _('Russian')),
+    ('en', _('English')),
     ('uz', _("Uzbek")),
 ]
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+
+LOCALE_PATHS = [
+    BASE_DIR/'locale'
+]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -176,10 +184,6 @@ DJOSER = {
 }
 
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
-
-
-# CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
-# CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND")
 
 SMS_KEY = os.environ.get('SMS_KEY')
 
